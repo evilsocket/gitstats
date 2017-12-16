@@ -17,8 +17,6 @@ import (
 	"time"
 )
 
-const VERSION = "1.0.0"
-
 var (
 	stats    = NewStats()
 	repo     = (*git.Repository)(nil)
