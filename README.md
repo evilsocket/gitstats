@@ -24,6 +24,10 @@ To use `gitstats` simply:
 
     /path/to/gitstats -repo /path/to/repo
 
+Or filtering by author:
+
+    /path/to/gitstats -repo /path/to/repo -authors "some@one.com, some.one@else.ru"
+
 Example output:
 
 ![output](https://i.imgur.com/e4kGoAn.png)
