@@ -1,13 +1,22 @@
 builds:
-  - main: .
+  - main: main.go
     binary: gitstats
     env:
       - CGO_ENABLED=0
     goos:
       - linux
+      - darwin
+      - windows
+      - freebsd
     goarch:
       - 386
       - amd64
+      - arm
+      - arm64
+      - mips
+      - mipsle
+      - mips64
+      - mips64le
 
 changelog:
   sort: asc
