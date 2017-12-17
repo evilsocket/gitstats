@@ -1,6 +1,8 @@
 builds:
   - main: main.go
     binary: gitstats
+    env:
+      - CGO_ENABLED=0
     goos:
       - linux
       - darwin
