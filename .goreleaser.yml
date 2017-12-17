@@ -1,5 +1,5 @@
 builds:
-  - main: main.go
+  - main: .
     binary: gitstats
     env:
       - CGO_ENABLED=0
