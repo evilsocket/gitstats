@@ -10,11 +10,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"gopkg.in/src-d/go-git.v4"
-	"gopkg.in/src-d/go-git.v4/plumbing/object"
 	"os"
 	"strings"
 	"time"
+
+	"gopkg.in/src-d/go-git.v4"
+	"gopkg.in/src-d/go-git.v4/plumbing/object"
+	"gopkg.in/src-d/go-git.v4/storage/memory"
 )
 
 var (
@@ -37,10 +39,12 @@ func fatal(err string) {
 
 func main() {
 	var err error
+	var isURL bool
 
 	flag.Parse()
 
-	if Exists(path) == false {
+	isURL = URLValid(path)
+	if !isURL && Exists(path) == false {
 		fatal("Invalid path specified")
 	}
 
@@ -55,8 +59,15 @@ func main() {
 	started := time.Now()
 
 	fmt.Printf("gitstats v%s is starting the analysis on %s ...\n\n", VERSION, Bold(path))
+	if isURL {
+		fmt.Printf("cloning %s to memory...\n", Bold(path))
+		repo, err = git.Clone(memory.NewStorage(), nil, &git.CloneOptions{
+			URL: path,
+		})
+	} else {
+		repo, err = git.PlainOpen(path)
+	}
 
-	repo, err = git.PlainOpen(path)
 	if err != nil {
 		fatal(err.Error())
 	}
