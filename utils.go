@@ -9,11 +9,21 @@ package main
 
 import (
 	"fmt"
+	"net/url"
 	"os"
 	"regexp"
 	"sort"
 	"strings"
 )
+
+func URLValid(s string) bool {
+	_, err := url.ParseRequestURI(s)
+	if err != nil {
+		return false
+	} else {
+		return true
+	}
+}
 
 func Exists(path string) bool {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
