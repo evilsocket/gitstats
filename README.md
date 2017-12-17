@@ -9,8 +9,6 @@ Inspired by x0rz's [tweets analyzer](https://github.com/x0rz/tweets_analyzer), `
 * Yearly commits distribution.
 * Words distribution in commits logs.
 
-By default the statistics are generated for every author of the repository but they can be narrowed down filtering with the `-authors email.here@gmail.com,another.one@something.hell` command line parameter.
-
 ## Usage
 
 You can download precompiled releases of gitstats [here](https://github.com/evilsocket/gitstats/releases), if instead you want to build it from source, make sure you have Go >= 1.8 installed and configured, then clone this repository, install the dependencies and compile:
