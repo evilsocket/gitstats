@@ -159,7 +159,7 @@ func (s *Stats) Print() {
 
 	s.pChart("Weekly commits distribution (by day).",
 		vFormat,
-		[]string{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"},
+		[]string{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"},
 		s.ByDay)
 
 	fmt.Println()
